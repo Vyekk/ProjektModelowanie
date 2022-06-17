@@ -2,6 +2,9 @@ package ekomp.Models;
 
 import java.time.LocalDate;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
+
 public class Order {
     private int number;
     private Status status;
@@ -24,7 +27,14 @@ public class Order {
         this.fullCost = fullCost;
     }
 
+
     // Getery i Setery
+
+    public long getLeadTime() throws Exception {
+        if (this.dateOfEnd == null)
+            throw new Exception("Zamówienie jeszcze się nie skończyło!");
+        return DAYS.between(dateOfOrder,dateOfEnd);
+    }
 
     public int getNumber() {
         return number;
