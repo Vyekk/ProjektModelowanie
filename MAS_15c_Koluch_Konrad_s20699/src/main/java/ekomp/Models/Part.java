@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Part {
+public class Part extends ObjectPlus {
     private String name;
     private float price;
     private String category;

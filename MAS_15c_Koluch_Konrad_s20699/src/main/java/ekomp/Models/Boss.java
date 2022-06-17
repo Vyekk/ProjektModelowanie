@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Boss {
+public class Boss extends ObjectPlus{
     private int id;
     public Boss(int id) {
         this.id = id;

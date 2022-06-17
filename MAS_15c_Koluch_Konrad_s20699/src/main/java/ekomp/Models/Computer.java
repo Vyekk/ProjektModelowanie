@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Computer {
+public class Computer extends ObjectPlus{
     private float computerCost;
     private float serviceCost;
     private Integer testScore;

@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Adress {
+public class Adress extends ObjectPlus {
     private String streetName;
     private int houseNr;
     private Integer flatNr;
