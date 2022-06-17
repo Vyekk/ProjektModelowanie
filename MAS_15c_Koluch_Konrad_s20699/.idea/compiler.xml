@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MAS_15c_Koluch_Konrad_s20699" target="18" />
+      <module name="MAS_15c_Koluch_Konrad_s20699" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
