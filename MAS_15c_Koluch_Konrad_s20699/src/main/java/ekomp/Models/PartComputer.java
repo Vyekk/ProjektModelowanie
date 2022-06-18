@@ -1,5 +1,5 @@
 package ekomp.Models;
 
-public class PartComputer extends ObjectPlus {
+public class PartComputer {
     private int quantity;
 }
