@@ -2,7 +2,7 @@ package ekomp.Models;
 
 import java.time.LocalDate;
 
-public abstract class Employee extends ObjectPlus {
+public abstract class Employee extends ObjectPlusPlus {
     private LocalDate dateOfEmployment;
     private float salary;
     public static float minSalary=2800;

@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Person extends ObjectPlus {
+public class Person extends ObjectPlusPlus {
     private String firstName;
     private String lastName;
 

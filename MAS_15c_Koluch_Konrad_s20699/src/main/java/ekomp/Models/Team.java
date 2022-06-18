@@ -2,7 +2,7 @@ package ekomp.Models;
 
 import java.time.LocalDate;
 
-public class Team extends ObjectPlus {
+public class Team extends ObjectPlusPlus {
     private LocalDate dateOfTeamCreated;
     private LocalDate dateOfTeamEnded;
 

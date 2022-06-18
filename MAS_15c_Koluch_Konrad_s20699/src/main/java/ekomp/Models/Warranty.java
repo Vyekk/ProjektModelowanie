@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Warranty extends ObjectPlus {
+public class Warranty extends ObjectPlusPlus {
     private int daysNumber;
     private String description;
     private String conditions;

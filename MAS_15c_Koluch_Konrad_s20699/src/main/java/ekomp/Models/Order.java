@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 
-public class Order extends ObjectPlus {
+public class Order extends ObjectPlusPlus {
     private int number;
     private Status status;
     private LocalDate dateOfOrder;
