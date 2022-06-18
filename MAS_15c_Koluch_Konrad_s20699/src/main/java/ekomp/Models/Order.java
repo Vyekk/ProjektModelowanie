@@ -14,6 +14,7 @@ public class Order extends ObjectPlus {
     private float fullCost;
     private Client client;
     private Computer computer;
+    private Vendor vendor;
 
     public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost) {
         this.number = number;
@@ -36,6 +37,16 @@ public class Order extends ObjectPlus {
         if (this.dateOfEnd == null)
             throw new Exception("Zamówienie jeszcze się nie skończyło!");
         return DAYS.between(dateOfOrder,dateOfEnd);
+    }
+
+    public Computer getComputer() {
+        return computer;
+    }
+
+    public Vendor getVendor() throws Exception {
+        if(vendor == null)
+            throw new Exception("Zamówienie nie zostało złożone przez sprzedawce");
+        return vendor;
     }
 
     public int getNumber() {
@@ -113,6 +124,16 @@ public class Order extends ObjectPlus {
             }
             this.computer = computer;
             this.computer.addOrder(this);
+        }
+    }
+
+    public void setVendor(Vendor vendor) {
+        if(this.vendor != vendor) {
+            if (vendor != null) {
+                this.vendor.removeOrder(this);
+            }
+            this.vendor = vendor;
+            this.vendor.addOrder(this);
         }
     }
 
