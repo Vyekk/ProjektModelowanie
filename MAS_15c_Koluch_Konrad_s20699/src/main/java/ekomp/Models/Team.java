@@ -8,6 +8,7 @@ public class Team extends ObjectPlus {
     private LocalDate dateOfTeamCreated;
     private LocalDate dateOfTeamEnded;
     private List<Computer> computers = new ArrayList<>();
+    private List<Allocation> allocations = new ArrayList<>();
 
     public Team(LocalDate dateOfTeamCreated) {
         this.dateOfTeamCreated = dateOfTeamCreated;
@@ -45,6 +46,19 @@ public class Team extends ObjectPlus {
     public void removeComputer(Computer computer) {
         if(computers.contains(computer)) {
             computers.remove(computer);
+        }
+    }
+
+    public void removeAllocation(Allocation allocation) {
+        if(allocations.contains(allocation)) {
+            allocations.remove(allocation);
+        }
+    }
+
+    public void addAllocation(Allocation allocation) {
+        if(!allocations.contains(allocation)) {
+            allocations.add(allocation);
+            allocation.setTeam(this);
         }
     }
 }
