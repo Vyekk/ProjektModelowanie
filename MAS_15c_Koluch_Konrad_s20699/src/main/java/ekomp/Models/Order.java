@@ -87,4 +87,12 @@ public class Order extends ObjectPlus {
     public void setFullCost(float fullCost) {
         this.fullCost = fullCost;
     }
+
+    // Metody biznesowe
+    public static void showOrders() throws ClassNotFoundException {
+        Iterable<Order> extent = ObjectPlus.getExtent(Order.class);
+        for(var order : extent) {
+            System.out.println(order.toString());
+        }
+    }
 }

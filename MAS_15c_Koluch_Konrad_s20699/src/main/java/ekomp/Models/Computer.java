@@ -41,5 +41,10 @@ public class Computer extends ObjectPlus{
     // Metody biznesowe
     public void testingComputer() {}
 
-    public static void showOfferts() {}
+    public static void showOfferts() throws ClassNotFoundException {
+        Iterable<Computer> extent = ObjectPlus.getExtent(Computer.class);
+        for(var offert : extent) {
+            System.out.println(offert.toString());
+        }
+    }
 }

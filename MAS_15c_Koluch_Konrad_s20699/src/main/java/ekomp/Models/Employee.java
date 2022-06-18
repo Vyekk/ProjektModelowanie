@@ -17,7 +17,12 @@ public abstract class Employee extends ObjectPlus {
     }
 
     // Metody biznesowe
-    public void showEmployees() {}
+    public static void showEmployees() throws ClassNotFoundException {
+        Iterable<Employee> extent = ObjectPlus.getExtent(Employee.class);
+        for(var employee : extent) {
+            System.out.println(employee.toString());
+        }
+    }
 
 
 }
