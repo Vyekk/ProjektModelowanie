@@ -1,6 +1,6 @@
 package ekomp.Models;
 
-public class Client extends ObjectPlusPlus{
+public class Client extends ObjectPlus{
     private int phoneNumber;
     private Adress adress;
 
