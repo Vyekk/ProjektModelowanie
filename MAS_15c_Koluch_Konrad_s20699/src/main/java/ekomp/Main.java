@@ -32,7 +32,10 @@ public class Main extends Application {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+//        Employee v1 = new Vendor(LocalDate.now(),2500);
+//        Employee s1 = new ServiceTechnician(LocalDate.now(),3200);
         launch();
+        Employee.showEmployees();
 
         try {
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(extentfile)));

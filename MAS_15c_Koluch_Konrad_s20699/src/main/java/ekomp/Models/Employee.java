@@ -23,15 +23,26 @@ public abstract class Employee extends ObjectPlus {
     }
 
     // Metody biznesowe
-    public static void showEmployees() throws ClassNotFoundException {
-        Iterable<Vendor> extentOfVendors = ObjectPlus.getExtent(Vendor.class);
-        Iterable<ServiceTechnician> extentOfService = ObjectPlus.getExtent(ServiceTechnician.class);
-        for(var employee : extentOfVendors) {
-            System.out.println(employee.toString());
+    public static void showEmployees() {
+
+        try {
+            Iterable<Vendor> extentOfVendors = ObjectPlus.getExtent(Vendor.class);
+            for(var employee : extentOfVendors) {
+                System.out.println(employee.toString());
+            }
+        } catch (ClassNotFoundException e) {
+            System.out.println("Nie znaleziono sprzedawców");
         }
-        for(var employee : extentOfService) {
-            System.out.println(employee.toString());
+
+        try {
+            Iterable<ServiceTechnician> extentOfService = ObjectPlus.getExtent(ServiceTechnician.class);
+            for(var employee : extentOfService) {
+                System.out.println(employee.toString());
+            }
+        } catch (ClassNotFoundException e) {
+            System.out.println("Nie znaleziono serwisantów");
         }
+
     }
 
 
