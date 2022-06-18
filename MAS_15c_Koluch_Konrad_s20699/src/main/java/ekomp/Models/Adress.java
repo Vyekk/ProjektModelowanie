@@ -6,6 +6,8 @@ public class Adress extends ObjectPlus {
     private Integer flatNr;
     private String cityName;
     private String zipCode;
+    private Client client;
+    private Shop shop;
 
     // Przeciążone konstruktory
     public Adress(String streetName, int houseNr, String cityName, String zipCode) {
@@ -64,5 +66,25 @@ public class Adress extends ObjectPlus {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public Client getClient() throws Exception {
+        if (this.client == null)
+            throw new Exception("Wybrany adres nie jest powiązany z żadnym klientem");
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Shop getShop() throws Exception {
+        if (this.shop == null)
+            throw new Exception("Wybrany adres nie jest powiązany z żadnym sklepem");
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }
