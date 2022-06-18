@@ -7,8 +7,8 @@ public class PartComputer {
 
     public PartComputer(int quantity, Part part, Computer computer) {
         this.quantity = quantity;
-        this.part = part;
-        this.computer = computer;
+        setPart(part);
+        setComputer(computer);
     }
 
     // Getery i setery
