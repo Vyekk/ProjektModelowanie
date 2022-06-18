@@ -7,6 +7,7 @@ public class Computer extends ObjectPlus{
     private float computerCost;
     private float serviceCost;
     private Integer testScore;
+    private Team team;
     private List<Order> orders = new ArrayList<>();
 
     public Computer(float serviceCost) {
@@ -63,6 +64,16 @@ public class Computer extends ObjectPlus{
     public void removeOrder(Order order) {
         if(orders.contains(order)) {
             orders.remove(order);
+        }
+    }
+
+    public void setTeam(Team team) {
+        if(this.team != team) {
+            if (team != null) {
+                this.team.removeComputer(this);
+            }
+            this.team = team;
+            this.team.addComputer(this);
         }
     }
 }

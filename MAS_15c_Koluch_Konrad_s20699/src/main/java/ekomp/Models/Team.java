@@ -1,10 +1,13 @@
 package ekomp.Models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Team extends ObjectPlus {
     private LocalDate dateOfTeamCreated;
     private LocalDate dateOfTeamEnded;
+    private List<Computer> computers = new ArrayList<>();
 
     public Team(LocalDate dateOfTeamCreated) {
         this.dateOfTeamCreated = dateOfTeamCreated;
@@ -28,5 +31,20 @@ public class Team extends ObjectPlus {
 
     public void setDateOfTeamEnded(LocalDate dateOfTeamEnded) {
         this.dateOfTeamEnded = dateOfTeamEnded;
+    }
+
+    // Realizacja asocjacji
+
+    public void addComputer(Computer computer) {
+        if(!computers.contains(computer)) {
+            computers.add(computer);
+            computer.setTeam(this);
+        }
+    }
+
+    public void removeComputer(Computer computer) {
+        if(computers.contains(computer)) {
+            computers.remove(computer);
+        }
     }
 }
