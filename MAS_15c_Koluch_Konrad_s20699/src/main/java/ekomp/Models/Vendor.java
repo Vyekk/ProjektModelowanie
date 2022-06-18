@@ -9,6 +9,11 @@ public class Vendor extends Employee {
         super(dateOfEmployment, salary);
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "sprzedawca\nSprzedał: " + this.nrOfSoldComputers + " komputerów";
+    }
+
     // Getery i setery
 
 

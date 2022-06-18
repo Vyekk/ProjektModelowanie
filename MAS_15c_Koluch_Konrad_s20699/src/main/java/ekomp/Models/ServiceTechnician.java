@@ -9,6 +9,11 @@ public class ServiceTechnician extends Employee{
         super(dateOfEmployment, salary);
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "serwisant\nZłożył: " + this.nrOfCreatedComputers + " komputerów";
+    }
+
     // Getery i Setery
 
 

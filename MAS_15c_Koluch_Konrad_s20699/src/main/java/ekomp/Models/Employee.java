@@ -16,10 +16,19 @@ public abstract class Employee extends ObjectPlus {
         minSalary = newMinSalary;
     }
 
+    @Override
+    public String toString() {
+        return "Pracownik\n zatrudniony: " +dateOfEmployment+"\nzarabiający: " + salary+ "\nz kategorii: ";
+    }
+
     // Metody biznesowe
     public static void showEmployees() throws ClassNotFoundException {
-        Iterable<Employee> extent = ObjectPlus.getExtent(Employee.class);
-        for(var employee : extent) {
+        Iterable<Vendor> extentOfVendors = ObjectPlus.getExtent(Vendor.class);
+        Iterable<ServiceTechnician> extentOfService = ObjectPlus.getExtent(ServiceTechnician.class);
+        for(var employee : extentOfVendors) {
+            System.out.println(employee.toString());
+        }
+        for(var employee : extentOfService) {
             System.out.println(employee.toString());
         }
     }
