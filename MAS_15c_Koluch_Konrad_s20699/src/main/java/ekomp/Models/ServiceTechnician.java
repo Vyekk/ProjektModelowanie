@@ -11,7 +11,7 @@ public class ServiceTechnician extends Employee{
 
     @Override
     public String toString() {
-        return super.toString() + "serwisant\nZłożył: " + this.nrOfCreatedComputers + " komputerów";
+        return super.toString() + "serwisant\nZlozyl: " + this.nrOfCreatedComputers + " komputerow";
     }
 
     // Getery i Setery

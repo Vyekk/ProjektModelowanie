@@ -1,14 +1,13 @@
 package ekomp;
 
-import ekomp.Models.Adress;
-import ekomp.Models.ObjectPlus;
-import ekomp.Models.Shop;
+import ekomp.Models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.time.LocalDate;
 
 public class Main extends Application {
     @Override
@@ -33,7 +32,6 @@ public class Main extends Application {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
         launch();
 
         try {

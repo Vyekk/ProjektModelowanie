@@ -18,7 +18,7 @@ public abstract class Employee extends ObjectPlus {
 
     @Override
     public String toString() {
-        return "Pracownik\n zatrudniony: " +dateOfEmployment+"\nzarabiający: " + salary+ "\nz kategorii: ";
+        return "==Pracownik==\nzatrudniony: " +dateOfEmployment+"\nzarabiajacy: " + salary+ "\nz kategorii: ";
     }
 
     // Metody biznesowe
