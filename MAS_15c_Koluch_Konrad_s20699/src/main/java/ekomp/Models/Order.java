@@ -89,6 +89,12 @@ public class Order extends ObjectPlus {
         this.fullCost = fullCost;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    // Realizacja asocjacji
+
     public void setClient(Client client) {
         if(this.client != client) {
             if (client != null) {
@@ -97,10 +103,6 @@ public class Order extends ObjectPlus {
             this.client = client;
             this.client.addOrder(this);
         }
-    }
-
-    public Client getClient() {
-        return client;
     }
 
     // Metody biznesowe

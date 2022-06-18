@@ -18,6 +18,8 @@ public class Client extends ObjectPlus{
         }
     }
     public void removeOrder(Order order) {
-        orders.remove(order);
+        if(orders.contains(order)) {
+            orders.remove(order);
+        }
     }
 }
