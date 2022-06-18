@@ -9,6 +9,7 @@ public class Computer extends ObjectPlus{
     private Integer testScore;
     private Team team;
     private List<Order> orders = new ArrayList<>();
+    private List<PartComputer> partComputerList = new ArrayList<>();
 
     public Computer(float serviceCost) {
         this.serviceCost = serviceCost;
@@ -74,6 +75,19 @@ public class Computer extends ObjectPlus{
             }
             this.team = team;
             this.team.addComputer(this);
+        }
+    }
+
+    public void removePartComputer(PartComputer partComputer) {
+        if(partComputerList.contains(partComputer)) {
+            partComputerList.remove(partComputer);
+        }
+    }
+
+    public void addPartComputer(PartComputer partComputer) {
+        if(!partComputerList.contains(partComputer)) {
+            partComputerList.add(partComputer);
+            partComputer.setComputer(this);
         }
     }
 }

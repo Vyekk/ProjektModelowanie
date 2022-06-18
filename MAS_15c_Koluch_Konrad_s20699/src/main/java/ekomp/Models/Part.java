@@ -1,9 +1,13 @@
 package ekomp.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Part extends ObjectPlus {
     private String name;
     private float price;
     private String category;
+    private List<PartComputer> partComputerList = new ArrayList<>();
 
     public Part(String name, float price, String category) {
         this.name = name;
@@ -36,5 +40,20 @@ public class Part extends ObjectPlus {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    // Realizacja asocjacji
+
+    public void removePartComputer(PartComputer partComputer) {
+        if(partComputerList.contains(partComputer)) {
+            partComputerList.remove(partComputer);
+        }
+    }
+
+    public void addPartComputer(PartComputer partComputer) {
+        if(!partComputerList.contains(partComputer)) {
+            partComputerList.add(partComputer);
+            partComputer.setPart(this);
+        }
     }
 }
