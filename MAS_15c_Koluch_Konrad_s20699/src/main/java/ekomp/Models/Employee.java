@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public abstract class Employee extends ObjectPlus {
     private LocalDate dateOfEmployment;
     private float salary;
+    private Shop shop;
     public static float minSalary=2800;
 
     public Employee(LocalDate dateOfEmployment, float salary) {
@@ -34,4 +35,13 @@ public abstract class Employee extends ObjectPlus {
     }
 
 
+    public void setShop(Shop shop) {
+        if(this.shop != shop) {
+            if(this.shop != null) {
+                this.shop.removeEmployee(this);
+            }
+            this.shop = shop;
+            this.shop.addEmployee(this);
+        }
+    }
 }
