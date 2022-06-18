@@ -28,6 +28,19 @@ public abstract class ObjectPlus implements Serializable {
         throw new ClassNotFoundException(String.format("%s. Stored extents: %s", type.toString(),allExtents.keySet()));
     }
 
+    public static void showExtent(Class theClass) throws Exception {
+        List<ObjectPlus> extent = null;
+
+        if(allExtents.containsKey(theClass)) {
+            extent = allExtents.get(theClass);
+        } else {
+            throw new Exception("Nieznana klasa");
+        }
+        for (Object obj: extent) {
+            System.out.println(obj.toString());
+        }
+    }
+
     public static void writeExtents(ObjectOutputStream stream) throws IOException {
         stream.writeObject(allExtents);
     }
