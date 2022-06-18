@@ -13,6 +13,7 @@ public class Order extends ObjectPlus {
     private Float shippingCost;
     private float fullCost;
     private Client client;
+    private Computer computer;
 
     public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost) {
         this.number = number;
@@ -102,6 +103,16 @@ public class Order extends ObjectPlus {
             }
             this.client = client;
             this.client.addOrder(this);
+        }
+    }
+
+    public void setComputer(Computer computer) {
+        if(this.computer != computer) {
+            if (computer != null) {
+                this.computer.removeOrder(this);
+            }
+            this.computer = computer;
+            this.computer.addOrder(this);
         }
     }
 

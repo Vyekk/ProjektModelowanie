@@ -1,9 +1,13 @@
 package ekomp.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Computer extends ObjectPlus{
     private float computerCost;
     private float serviceCost;
     private Integer testScore;
+    private List<Order> orders = new ArrayList<>();
 
     public Computer(float serviceCost) {
         this.serviceCost = serviceCost;
@@ -45,6 +49,20 @@ public class Computer extends ObjectPlus{
         Iterable<Computer> extent = ObjectPlus.getExtent(Computer.class);
         for(var offert : extent) {
             System.out.println(offert.toString());
+        }
+    }
+
+    // Realizacja asocjacji
+
+    public void addOrder(Order order) {
+        if(!orders.contains(order)) {
+            orders.add(order);
+            order.setComputer(this);
+        }
+    }
+    public void removeOrder(Order order) {
+        if(orders.contains(order)) {
+            orders.remove(order);
         }
     }
 }
