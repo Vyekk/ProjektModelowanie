@@ -12,6 +12,7 @@ public class Order extends ObjectPlus {
     private LocalDate dateOfEnd;
     private Float shippingCost;
     private float fullCost;
+    private Client client;
 
     public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost) {
         this.number = number;
@@ -88,6 +89,20 @@ public class Order extends ObjectPlus {
         this.fullCost = fullCost;
     }
 
+    public void setClient(Client client) {
+        if(this.client != client) {
+            if (client != null) {
+                this.client.removeOrder(this);
+            }
+            this.client = client;
+            this.client.addOrder(this);
+        }
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
     // Metody biznesowe
     public static void showOrders() throws ClassNotFoundException {
         Iterable<Order> extent = ObjectPlus.getExtent(Order.class);
@@ -95,4 +110,5 @@ public class Order extends ObjectPlus {
             System.out.println(order.toString());
         }
     }
+
 }
