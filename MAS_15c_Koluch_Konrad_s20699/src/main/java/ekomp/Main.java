@@ -1,11 +1,14 @@
 package ekomp;
 
+import ekomp.Models.Adress;
+import ekomp.Models.ObjectPlus;
+import ekomp.Models.Shop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 
 public class Main extends Application {
     @Override
@@ -17,7 +20,30 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
+        String extentfile = "ekstensja.txt";
+        try {
+            ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(extentfile)));
+            ObjectPlus.readExtents(in);
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         launch();
+
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(extentfile)));
+            ObjectPlus.writeExtents(out);
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
