@@ -1,5 +1,8 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+import ekomp.Helpers.PersonType;
+
 import java.time.LocalDate;
 
 public class Person extends ObjectPlus {

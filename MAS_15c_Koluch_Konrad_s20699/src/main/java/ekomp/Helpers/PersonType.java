@@ -1,4 +1,4 @@
-package ekomp.Models;
+package ekomp.Helpers;
 
 public enum PersonType {
     BOSS,

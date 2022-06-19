@@ -1,9 +1,11 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Boss extends ObjectPlus{
+public class Boss extends ObjectPlus {
     private int id;
     private Person person;
     private List<Shop> shops = new ArrayList<>();

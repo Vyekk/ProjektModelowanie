@@ -1,5 +1,7 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+
 public class Adress extends ObjectPlus {
     private String streetName;
     private int houseNr;

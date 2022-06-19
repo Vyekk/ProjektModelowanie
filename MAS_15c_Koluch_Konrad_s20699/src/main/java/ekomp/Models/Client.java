@@ -1,9 +1,11 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Client extends ObjectPlus{
+public class Client extends ObjectPlus {
     private int phoneNumber;
     private Adress adress;
     private Person person;

@@ -1,9 +1,11 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Computer extends ObjectPlus{
+public class Computer extends ObjectPlus {
     private float computerCost;
     private float serviceCost;
     private Integer testScore;

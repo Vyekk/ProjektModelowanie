@@ -1,5 +1,7 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+
 public class Warranty extends ObjectPlus {
     private int daysNumber;
     private String description;
