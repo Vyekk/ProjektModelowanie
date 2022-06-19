@@ -5,13 +5,21 @@ import java.util.List;
 
 public class Boss extends ObjectPlus{
     private int id;
+    private Person person;
     private List<Shop> shops = new ArrayList<>();
 
-    public Boss(int id) {
-        this.id = id;
+    private Boss(Person person) {
+        this.person = person;
     }
 
-    // Getery i seter
+    public static Boss createBoss(Person person) throws Exception {
+        if (person == null)
+            throw new Exception("Podana osoba nie istnieje!");
+        Boss boss = new Boss(person);
+        return boss;
+    }
+
+    // Getery i setery
     public int getId() {
         return id;
     }
@@ -19,6 +27,9 @@ public class Boss extends ObjectPlus{
     public void setId(int id) {
         this.id = id;
     }
+
+
+    // Realizacja asocjacji
 
     public void addShop(Shop shop) {
         if (!shops.contains(shop)) {

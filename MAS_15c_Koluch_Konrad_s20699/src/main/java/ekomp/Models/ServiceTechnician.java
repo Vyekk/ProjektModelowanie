@@ -8,8 +8,15 @@ public class ServiceTechnician extends Employee{
     private int nrOfCreatedComputers;
     private List<Allocation> allocations = new ArrayList<>();
 
-    public ServiceTechnician(LocalDate dateOfEmployment, float salary) {
-        super(dateOfEmployment, salary);
+    private ServiceTechnician(LocalDate dateOfEmployment, float salary, Person person) {
+        super(dateOfEmployment, salary, person);
+    }
+
+    public static ServiceTechnician createServiceTechnician(LocalDate dateOfEmployment, float salary,Person person) throws Exception {
+        if (person == null)
+            throw new Exception("Podana osoba nie istnieje!");
+        ServiceTechnician serviceTechnician = new ServiceTechnician(dateOfEmployment, salary, person);
+        return serviceTechnician;
     }
 
     @Override

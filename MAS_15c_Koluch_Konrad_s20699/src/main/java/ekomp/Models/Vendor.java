@@ -8,8 +8,15 @@ public class Vendor extends Employee {
     private int nrOfSoldComputers;
     private List<Order> orders = new ArrayList<>();
 
-    public Vendor(LocalDate dateOfEmployment, float salary) {
-        super(dateOfEmployment, salary);
+    private Vendor(LocalDate dateOfEmployment, float salary, Person person) {
+        super(dateOfEmployment, salary, person);
+    }
+
+    public static Vendor createVendor(LocalDate dateOfEmployment, float salary,Person person) throws Exception {
+        if (person == null)
+            throw new Exception("Podana osoba nie istnieje!");
+        Vendor vendor = new Vendor(dateOfEmployment, salary, person);
+        return vendor;
     }
 
     @Override

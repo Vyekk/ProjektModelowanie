@@ -6,11 +6,13 @@ public abstract class Employee extends ObjectPlus {
     private LocalDate dateOfEmployment;
     private float salary;
     private Shop shop;
+    private Person person;
     public static float minSalary=2800;
 
-    public Employee(LocalDate dateOfEmployment, float salary) {
+    public Employee(LocalDate dateOfEmployment, float salary, Person person) {
         this.dateOfEmployment = dateOfEmployment;
         this.salary = salary;
+        this.person = person;
     }
 
     public static void setMinSalary(float newMinSalary) {
