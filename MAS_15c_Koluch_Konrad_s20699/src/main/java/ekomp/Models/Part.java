@@ -8,6 +8,8 @@ public class Part extends ObjectPlus {
     private float price;
     private String category;
     private List<PartComputer> partComputerList = new ArrayList<>();
+    private List<Warranty> warranties = new ArrayList<>();
+    private List<Warranty> allWarranties = new ArrayList<>();
 
     public Part(String name, float price, String category) {
         this.name = name;
@@ -54,6 +56,16 @@ public class Part extends ObjectPlus {
         if(!partComputerList.contains(partComputer)) {
             partComputerList.add(partComputer);
             partComputer.setPart(this);
+        }
+    }
+
+    public void addWarranty(Warranty warranty) throws Exception {
+        if (!warranties.contains(warranty)) {
+            if (allWarranties.contains(warranty)) {
+                throw new Exception("Gwarancja ta jest już połączona!");
+            }
+            warranties.add(warranty);
+            allWarranties.add(warranty);
         }
     }
 }
