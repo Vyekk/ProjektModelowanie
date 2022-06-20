@@ -1,6 +1,7 @@
 package ekomp;
 
 import ekomp.Helpers.ObjectPlus;
+import ekomp.Helpers.PersonType;
 import ekomp.Models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.time.LocalDate;
 
 public class Main extends Application {
     @Override
@@ -26,27 +28,23 @@ public class Main extends Application {
             ObjectPlus.readExtents(in);
             in.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Nie znaleziono pliku z danymi");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
+
         launch();
 
-        try {
-            Person.showExtent(Person.class);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         try {
             ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(extentfile)));
             ObjectPlus.writeExtents(out);
             out.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Nie znaleziono pliku z danymi");
         } catch (IOException e) {
             e.printStackTrace();
         }
