@@ -19,14 +19,16 @@ public class Order extends ObjectPlus {
     private Computer computer;
     private Vendor vendor;
 
-    public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost) {
+    public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost, Client cLient) {
+        setClient(client);
         this.number = number;
         this.status = status;
         this.dateOfOrder = dateOfOrder;
         this.shippingCost = shippingCost;
         this.fullCost = fullCost;
     }
-    public Order(int number, Status status, LocalDate dateOfOrder, float fullCost) {
+    public Order(int number, Status status, LocalDate dateOfOrder, float fullCost, Client client) {
+        setClient(client);
         this.number = number;
         this.status = status;
         this.dateOfOrder = dateOfOrder;
