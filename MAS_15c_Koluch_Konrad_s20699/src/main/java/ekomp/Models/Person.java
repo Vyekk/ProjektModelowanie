@@ -4,6 +4,7 @@ import ekomp.Helpers.ObjectPlus;
 import ekomp.Helpers.PersonType;
 
 import java.time.LocalDate;
+import java.util.EnumSet;
 
 public class Person extends ObjectPlus {
     private String firstName;
@@ -12,59 +13,31 @@ public class Person extends ObjectPlus {
     private Employee employee;
     private Boss boss;
 
-    public Person(String firstName, String lastName, PersonType personType) throws Exception {
+    public Person(String firstName, String lastName, EnumSet<PersonType> types) throws Exception {
         this.firstName = firstName;
         this.lastName = lastName;
-        switch (personType) {
-            case BOSS:
-                this.boss = Boss.createBoss(this);
-                break;
-            case CLIENT:
-                this.client = Client.createClient(this);
-                break;
-            case BOSS_CLIENT:
-                this.boss = Boss.createBoss(this);
-                this.client = Client.createClient(this);
-                break;
+        if(types.contains(PersonType.BOSS)) {
+            this.boss = Boss.createBoss(this);
+        }
+        if(types.contains(PersonType.CLIENT)) {
+            this.client = Client.createClient(this);
         }
     }
 
-    public Person(String firstName, String lastName, LocalDate dateOfEmployment, float salary, PersonType personType) throws Exception {
+    public Person(String firstName, String lastName, LocalDate dateOfEmployment, float salary, EnumSet<PersonType> types) throws Exception {
         this.firstName = firstName;
         this.lastName = lastName;
-        switch (personType) {
-            case VENDOR:
-                this.employee = Vendor.createVendor(dateOfEmployment, salary,this);
-                break;
-            case SERVICETECHNICIAN:
-                this.employee = ServiceTechnician.createServiceTechnician(dateOfEmployment,salary, this);
-                break;
-            case BOSS_VENDOR:
-                this.boss = Boss.createBoss(this);
-                this.employee = Vendor.createVendor(dateOfEmployment, salary,this);
-                break;
-            case BOSS_SERVICETECHNICIAN:
-                this.boss = Boss.createBoss(this);
-                this.employee = ServiceTechnician.createServiceTechnician(dateOfEmployment,salary, this);
-                break;
-            case VENDOR_CLIENT:
-                this.client = Client.createClient(this);
-                this.employee = Vendor.createVendor(dateOfEmployment, salary,this);
-                break;
-            case SERVICETECHNICIAN_CLIENT:
-                this.client = Client.createClient(this);
-                this.employee = ServiceTechnician.createServiceTechnician(dateOfEmployment,salary, this);
-                break;
-            case BOSS_VENDOR_CLIENT:
-                this.boss = Boss.createBoss(this);
-                this.client = Client.createClient(this);
-                this.employee = Vendor.createVendor(dateOfEmployment, salary,this);
-                break;
-            case BOSS_SERVICETECHNICIAN_CLIENT:
-                this.boss = Boss.createBoss(this);
-                this.client = Client.createClient(this);
-                this.employee = ServiceTechnician.createServiceTechnician(dateOfEmployment,salary, this);
-                break;
+        if(types.contains(PersonType.BOSS)) {
+            this.boss = Boss.createBoss(this);
+        }
+        if(types.contains(PersonType.CLIENT)) {
+            this.client = Client.createClient(this);
+        }
+        if(types.contains(PersonType.VENDOR)) {
+            this.employee = Vendor.createVendor(dateOfEmployment, salary,this);
+        }
+        if(types.contains(PersonType.SERVICETECHNICIAN)) {
+            this.employee = ServiceTechnician.createServiceTechnician(dateOfEmployment,salary, this);
         }
     }
 
