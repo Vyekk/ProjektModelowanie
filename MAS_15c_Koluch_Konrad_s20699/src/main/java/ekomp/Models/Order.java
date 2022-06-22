@@ -19,7 +19,8 @@ public class Order extends ObjectPlus {
     private Computer computer;
     private Vendor vendor;
 
-    public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost, Client cLient) {
+    public Order(int number, Status status, LocalDate dateOfOrder, Float shippingCost, float fullCost, Client client, Computer computer) {
+        setComputer(computer);
         setClient(client);
         this.number = number;
         this.status = status;
@@ -27,7 +28,8 @@ public class Order extends ObjectPlus {
         this.shippingCost = shippingCost;
         this.fullCost = fullCost;
     }
-    public Order(int number, Status status, LocalDate dateOfOrder, float fullCost, Client client) {
+    public Order(int number, Status status, LocalDate dateOfOrder, float fullCost, Client client, Computer computer) {
+        setComputer(computer);
         setClient(client);
         this.number = number;
         this.status = status;
@@ -35,6 +37,14 @@ public class Order extends ObjectPlus {
         this.fullCost = fullCost;
     }
 
+    @Override
+    public String toString() {
+        try {
+            return this.number + " | " + this.status + " | " + this.shippingCost +" | "+ this.fullCost +" | "+ this.computer.getTestScore();
+        } catch (Exception e) {
+            return "Wystąpił błąd przy ładowaniu zamówienia";
+        }
+    }
 
     // Getery i Setery
 
@@ -114,7 +124,7 @@ public class Order extends ObjectPlus {
 
     public void setClient(Client client) {
         if(this.client != client) {
-            if (client != null) {
+            if (this.client != null) {
                 this.client.removeOrder(this);
             }
             this.client = client;
@@ -124,7 +134,7 @@ public class Order extends ObjectPlus {
 
     public void setComputer(Computer computer) {
         if(this.computer != computer) {
-            if (computer != null) {
+            if (this.computer != null) {
                 this.computer.removeOrder(this);
             }
             this.computer = computer;
@@ -134,7 +144,7 @@ public class Order extends ObjectPlus {
 
     public void setVendor(Vendor vendor) {
         if(this.vendor != vendor) {
-            if (vendor != null) {
+            if (this.vendor != null) {
                 this.vendor.removeOrder(this);
             }
             this.vendor = vendor;

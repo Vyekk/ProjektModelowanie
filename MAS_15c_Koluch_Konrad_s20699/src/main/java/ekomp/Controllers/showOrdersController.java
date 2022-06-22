@@ -23,7 +23,7 @@ public class showOrdersController implements Initializable {
     private Parent root;
 
     @FXML
-    ListView<Order> orderView;
+    ListView<Order> orderList;
 
     public void setPerson(Person newPerson) {
         person = newPerson;
@@ -33,7 +33,7 @@ public class showOrdersController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (person != null) {
             if (!person.getClient().getOrders().isEmpty()) {
-                orderView.getItems().addAll(person.getClient().getOrders());
+                orderList.getItems().addAll(person.getClient().getOrders());
             }
         }
     }

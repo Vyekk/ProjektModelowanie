@@ -1,6 +1,7 @@
 package ekomp.Controllers;
 
 import ekomp.Helpers.PersonType;
+import ekomp.Models.Adress;
 import ekomp.Models.Person;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +22,7 @@ public class AddNewPersonController {
     @FXML
     CheckBox cClient, cBoss, cEmployee;
     @FXML
-    TextField tSalary, tId, tFirstName, tLastName;
+    TextField tSalary, tId, tFirstName, tLastName, tCity, tHouseNr, tFlatNr, tZipCode,tStreet;
     @FXML
     DatePicker employmentDate;
     @FXML
@@ -46,6 +47,23 @@ public class AddNewPersonController {
             tSalary.setVisible(false);
         }
     }
+
+    @FXML
+    public void showAdress() {
+        if (cClient.isSelected()) {
+            tCity.setVisible(true);
+            tHouseNr.setVisible(true);
+            tFlatNr.setVisible(true);
+            tZipCode.setVisible(true);
+            tStreet.setVisible(true);
+        } else {
+            tCity.setVisible(false);
+            tHouseNr.setVisible(false);
+            tFlatNr.setVisible(false);
+            tZipCode.setVisible(false);
+            tStreet.setVisible(false);
+        }
+    }
     @FXML
     public void showId() {
         if (cBoss.isSelected()) {
@@ -57,16 +75,26 @@ public class AddNewPersonController {
 
     @FXML
     public void createNewPerson() throws Exception {
+        Person newPerson;
         addPrivilages();
         if(cEmployee.isSelected()) {
             if(!rVendor.isSelected() && !rServiceTechnician.isSelected())
                 throw new Exception("Nie wybrano konkretnego pracownika!");
-            Person lala = new Person(tFirstName.getText(),tLastName.getText(), employmentDate.getValue(),Float.parseFloat(tSalary.getText()), (ArrayList<PersonType>) privilages);
+            newPerson = new Person(tFirstName.getText(),tLastName.getText(), employmentDate.getValue(),Float.parseFloat(tSalary.getText()), (ArrayList<PersonType>) privilages);
             System.out.println("Stworzono pracownika");
         } else {
-            Person lala = new Person(tFirstName.getText(),tLastName.getText(), (ArrayList<PersonType>) privilages);
-            comunicate.setVisible(true);
+            newPerson = new Person(tFirstName.getText(),tLastName.getText(), (ArrayList<PersonType>) privilages);
         }
+        if (cClient.isSelected()) {
+            if (tFlatNr.getText() == "") {
+                Adress newAdress = new Adress(tStreet.getText(), Integer.parseInt(tHouseNr.getText()), tCity.getText(), tZipCode.getText());
+                newPerson.getClient().setAdress(newAdress);
+            } else {
+                Adress newAdress = new Adress(tStreet.getText(), Integer.parseInt(tHouseNr.getText()), Integer.parseInt(tFlatNr.getText()), tCity.getText(), tZipCode.getText());
+                newPerson.getClient().setAdress(newAdress);
+            }
+        }
+        comunicate.setVisible(true);
     }
     @FXML
     public void switchToMain(ActionEvent event) throws IOException {

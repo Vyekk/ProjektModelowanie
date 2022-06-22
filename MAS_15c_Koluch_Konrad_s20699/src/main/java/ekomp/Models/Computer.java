@@ -1,6 +1,7 @@
 package ekomp.Models;
 
 import ekomp.Helpers.ObjectPlus;
+import javafx.scene.control.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,11 @@ public class Computer extends ObjectPlus {
 
     public Computer(float serviceCost) {
         this.serviceCost = serviceCost;
+    }
+
+    @Override
+    public String toString() {
+        return "Komputer: " + computerCost + " zł";
     }
 
     // Getery i setery
@@ -36,10 +42,10 @@ public class Computer extends ObjectPlus {
         this.serviceCost = serviceCost;
     }
 
-    public int getTestScore() throws Exception {
+    public String getTestScore() {
         if (this.testScore == null)
-            throw new Exception("Test nie został jeszcze wykonany");
-        return testScore;
+            return "Test nie został jeszcze wykonany";
+        return testScore.toString();
     }
 
     public void setTestScore(int testScore) {
@@ -49,10 +55,10 @@ public class Computer extends ObjectPlus {
     // Metody biznesowe
     public void testingComputer() {}
 
-    public static void showOfferts() throws ClassNotFoundException {
+    public static void showOfferts(ListView listView) throws ClassNotFoundException {
         Iterable<Computer> extent = ObjectPlus.getExtent(Computer.class);
         for(var offert : extent) {
-            System.out.println(offert.toString());
+            listView.getItems().add(offert);
         }
     }
 
@@ -72,7 +78,7 @@ public class Computer extends ObjectPlus {
 
     public void setTeam(Team team) {
         if(this.team != team) {
-            if (team != null) {
+            if (this.team != null) {
                 this.team.removeComputer(this);
             }
             this.team = team;
@@ -89,6 +95,7 @@ public class Computer extends ObjectPlus {
     public void addPartComputer(PartComputer partComputer) {
         if(!partComputerList.contains(partComputer)) {
             partComputerList.add(partComputer);
+            computerCost += partComputer.getPart().getPrice() * partComputer.getQuantity();
             partComputer.setComputer(this);
         }
     }

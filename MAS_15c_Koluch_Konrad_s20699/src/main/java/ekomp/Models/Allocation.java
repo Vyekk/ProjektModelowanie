@@ -1,9 +1,11 @@
 package ekomp.Models;
 
+import ekomp.Helpers.ObjectPlus;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Allocation {
+public class Allocation extends ObjectPlus {
     private List<String> roles = new ArrayList<>();
     private ServiceTechnician serviceTechnician;
     private Team team;
@@ -38,7 +40,7 @@ public class Allocation {
 
     public void setServiceTechnician(ServiceTechnician serviceTechnician) {
         if(this.serviceTechnician != serviceTechnician) {
-            if (serviceTechnician != null) {
+            if (this.serviceTechnician != null) {
                 this.serviceTechnician.removeAllocation(this);
             }
             this.serviceTechnician = serviceTechnician;
@@ -48,7 +50,7 @@ public class Allocation {
 
     public void setTeam(Team team) {
         if(this.team != team) {
-            if (team != null) {
+            if (this.team != null) {
                 this.team.removeAllocation(this);
             }
             this.team = team;

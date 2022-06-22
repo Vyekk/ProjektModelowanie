@@ -1,6 +1,10 @@
 package ekomp;
 
 import ekomp.Helpers.ObjectPlus;
+import ekomp.Models.Computer;
+import ekomp.Models.Order;
+import ekomp.Models.Part;
+import ekomp.Models.PartComputer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,8 +35,14 @@ public class Main extends Application {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
+        // Przykładowe dane z komputerami
+        Part p1 = new Part("nvidia gtx 1080",1999.99f,"Karta graficzna");
+        Part p2 = new Part("Gigabyte Z23",449.99f,"Płyta główna");
+        Computer c1 = new Computer(340);
+        PartComputer pc1 = new PartComputer(2,p1,c1);
+        PartComputer pc2 = new PartComputer(1,p2,c1);
+//        Order o = (Order) ObjectPlus.allExtents.get(Order.class).get(0);
+//        System.out.println(o.getNumber() + " " + o.getClient());
         launch();
 
 

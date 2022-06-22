@@ -11,22 +11,27 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ekomp.Controllers.AddNewPersonController">
    <children>
-      <CheckBox fx:id="cBoss" layoutX="165.0" layoutY="70.0" mnemonicParsing="false" onAction="#showId" text="Szef" />
-      <CheckBox fx:id="cClient" layoutX="252.0" layoutY="70.0" mnemonicParsing="false" text="Klient" />
-      <RadioButton fx:id="rServiceTechnician" layoutX="189.0" layoutY="114.0" mnemonicParsing="false" text="Serwisant" visible="false">
+      <CheckBox fx:id="cBoss" layoutX="165.0" layoutY="53.0" mnemonicParsing="false" onAction="#showId" text="Szef" />
+      <CheckBox fx:id="cClient" layoutX="252.0" layoutY="53.0" mnemonicParsing="false" onAction="#showAdress" text="Klient" />
+      <RadioButton fx:id="rServiceTechnician" layoutX="189.0" layoutY="97.0" mnemonicParsing="false" text="Serwisant" visible="false">
          <toggleGroup>
             <ToggleGroup fx:id="employee" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rVendor" layoutX="298.0" layoutY="114.0" mnemonicParsing="false" text="Sprzedawca" toggleGroup="$employee" visible="false" />
-      <TextField fx:id="tFirstName" layoutX="86.0" layoutY="167.0" promptText="Imie" />
-      <TextField fx:id="tLastName" layoutX="327.0" layoutY="167.0" promptText="Nazwisko" />
-      <Button layoutX="229.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchToMain" text="Powrót" />
-      <Button layoutX="306.0" layoutY="319.0" mnemonicParsing="false" onAction="#createNewPerson" text="Stwórz" />
-      <DatePicker fx:id="employmentDate" layoutX="86.0" layoutY="216.0" prefHeight="31.0" prefWidth="186.0" visible="false" />
-      <TextField fx:id="tSalary" layoutX="327.0" layoutY="216.0" promptText="Pensja" visible="false" />
-      <TextField fx:id="tId" layoutX="213.0" layoutY="265.0" promptText="id" visible="false" />
-      <CheckBox fx:id="cEmployee" layoutX="352.0" layoutY="70.0" mnemonicParsing="false" onAction="#showDateSalary" text="Pracownik" />
-      <Label fx:id="comunicate" layoutX="203.0" layoutY="31.0" text="Gratuluje dodałeś nową osobę!" textFill="#19a42c" visible="false" />
+      <RadioButton fx:id="rVendor" layoutX="298.0" layoutY="97.0" mnemonicParsing="false" text="Sprzedawca" toggleGroup="$employee" visible="false" />
+      <TextField fx:id="tFirstName" layoutX="86.0" layoutY="150.0" promptText="Imie" />
+      <TextField fx:id="tLastName" layoutX="327.0" layoutY="150.0" promptText="Nazwisko" />
+      <Button layoutX="235.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchToMain" text="Powrót" />
+      <Button layoutX="312.0" layoutY="342.0" mnemonicParsing="false" onAction="#createNewPerson" text="Stwórz" />
+      <DatePicker fx:id="employmentDate" layoutX="86.0" layoutY="199.0" prefHeight="31.0" prefWidth="186.0" visible="false" />
+      <TextField fx:id="tSalary" layoutX="327.0" layoutY="199.0" promptText="Pensja" visible="false" />
+      <TextField fx:id="tId" layoutX="213.0" layoutY="248.0" promptText="id" visible="false" />
+      <CheckBox fx:id="cEmployee" layoutX="352.0" layoutY="53.0" mnemonicParsing="false" onAction="#showDateSalary" text="Pracownik" />
+      <Label fx:id="comunicate" layoutX="203.0" layoutY="14.0" text="Gratuluje dodałeś nową osobę!" textFill="#19a42c" visible="false" />
+      <TextField fx:id="tStreet" layoutX="180.0" layoutY="300.0" prefHeight="31.0" prefWidth="136.0" promptText="Ulica" visible="false" />
+      <TextField fx:id="tCity" layoutX="30.0" layoutY="300.0" prefHeight="31.0" prefWidth="136.0" promptText="Miasto" visible="false" />
+      <TextField fx:id="tHouseNr" layoutX="322.0" layoutY="300.0" prefHeight="31.0" prefWidth="76.0" promptText="Nr domu" visible="false" />
+      <TextField fx:id="tFlatNr" layoutX="407.0" layoutY="300.0" prefHeight="31.0" prefWidth="76.0" promptText="Nr mieszkania" visible="false" />
+      <TextField fx:id="tZipCode" layoutX="493.0" layoutY="300.0" prefHeight="31.0" prefWidth="67.0" promptText="ZIP" visible="false" />
    </children>
 </Pane>

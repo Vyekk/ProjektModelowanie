@@ -31,6 +31,15 @@ public class MainController {
     }
 
     @FXML
+    public void switchToAddNewOrder(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("addNewOrder.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     public void switchToSeeAll(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("seeAll.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

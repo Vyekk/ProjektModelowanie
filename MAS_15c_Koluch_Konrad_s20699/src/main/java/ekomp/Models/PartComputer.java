@@ -1,6 +1,8 @@
 package ekomp.Models;
 
-public class PartComputer {
+import ekomp.Helpers.ObjectPlus;
+
+public class PartComputer extends ObjectPlus {
     private int quantity;
     private Part part;
     private Computer computer;
@@ -27,7 +29,7 @@ public class PartComputer {
 
     public void setPart(Part part) {
         if(this.part != part) {
-            if (part != null) {
+            if (this.part != null) {
                 this.part.removePartComputer(this);
             }
             this.part = part;
@@ -41,7 +43,7 @@ public class PartComputer {
 
     public void setComputer(Computer computer) {
         if(this.computer != computer) {
-            if (computer != null) {
+            if (this.computer != null) {
                 this.computer.removePartComputer(this);
             }
             this.computer = computer;
