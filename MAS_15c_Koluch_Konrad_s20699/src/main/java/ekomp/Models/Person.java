@@ -2,9 +2,10 @@ package ekomp.Models;
 
 import ekomp.Helpers.ObjectPlus;
 import ekomp.Helpers.PersonType;
-
 import java.time.LocalDate;
-import java.util.EnumSet;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Person extends ObjectPlus {
     private String firstName;
@@ -13,7 +14,8 @@ public class Person extends ObjectPlus {
     private Employee employee;
     private Boss boss;
 
-    public Person(String firstName, String lastName, EnumSet<PersonType> types) throws Exception {
+    public Person(String firstName, String lastName, ArrayList<PersonType> types) throws Exception {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         if(types.contains(PersonType.BOSS)) {
@@ -24,7 +26,7 @@ public class Person extends ObjectPlus {
         }
     }
 
-    public Person(String firstName, String lastName, LocalDate dateOfEmployment, float salary, EnumSet<PersonType> types) throws Exception {
+    public Person(String firstName, String lastName, LocalDate dateOfEmployment, float salary, ArrayList<PersonType> types) throws Exception {
         this.firstName = firstName;
         this.lastName = lastName;
         if(types.contains(PersonType.BOSS)) {
@@ -46,6 +48,11 @@ public class Person extends ObjectPlus {
     public void login() {}
 
     public void checkPassword() {}
+
+    @Override
+    public String toString() {
+        return "Osoba nazwyajaca sie: " + this.firstName + " " + this.lastName;
+    }
 
     // Getery i setery
 
