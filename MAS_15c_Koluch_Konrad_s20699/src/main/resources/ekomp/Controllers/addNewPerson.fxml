@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ekomp.Controllers.AddNewPersonController">
+   <children>
+      <CheckBox fx:id="cBoss" layoutX="165.0" layoutY="70.0" mnemonicParsing="false" onAction="#showId" text="Szef" />
+      <CheckBox fx:id="cClient" layoutX="252.0" layoutY="70.0" mnemonicParsing="false" text="Klient" />
+      <RadioButton fx:id="rServiceTechnician" layoutX="189.0" layoutY="114.0" mnemonicParsing="false" text="Serwisant" visible="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="employee" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rVendor" layoutX="298.0" layoutY="114.0" mnemonicParsing="false" text="Sprzedawca" toggleGroup="$employee" visible="false" />
+      <TextField fx:id="tFirstName" layoutX="86.0" layoutY="167.0" promptText="Imie" />
+      <TextField fx:id="tLastName" layoutX="327.0" layoutY="167.0" promptText="Nazwisko" />
+      <Button layoutX="229.0" layoutY="319.0" mnemonicParsing="false" onAction="#switchToMain" text="Powrót" />
+      <Button layoutX="306.0" layoutY="319.0" mnemonicParsing="false" onAction="#createNewPerson" text="Stwórz" />
+      <DatePicker fx:id="employmentDate" layoutX="86.0" layoutY="216.0" prefHeight="31.0" prefWidth="186.0" visible="false" />
+      <TextField fx:id="tSalary" layoutX="327.0" layoutY="216.0" promptText="Pensja" visible="false" />
+      <TextField fx:id="tId" layoutX="213.0" layoutY="265.0" promptText="id" visible="false" />
+      <CheckBox fx:id="cEmployee" layoutX="352.0" layoutY="70.0" mnemonicParsing="false" onAction="#showDateSalary" text="Pracownik" />
+   </children>
+</Pane>
