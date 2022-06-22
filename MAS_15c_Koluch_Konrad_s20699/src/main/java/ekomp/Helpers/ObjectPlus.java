@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class ObjectPlus implements Serializable {
-    private static Map<Class, List<ObjectPlus>> allExtents = new Hashtable<>();
+    public static Map<Class, List<ObjectPlus>> allExtents = new Hashtable<>();
     public ObjectPlus() {
         List<ObjectPlus> extent = null;
         Class theClass = this.getClass();
@@ -17,8 +17,8 @@ public abstract class ObjectPlus implements Serializable {
         } else {
             extent = new ArrayList<>();
             allExtents.put(theClass,extent);
-            extent.add(this);
         }
+            extent.add(this);
     }
 
     public static <T> Iterable <T> getExtent(Class<T> type) throws ClassNotFoundException {
