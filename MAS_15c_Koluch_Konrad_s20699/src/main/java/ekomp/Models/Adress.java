@@ -77,7 +77,10 @@ public class Adress extends ObjectPlus {
     }
 
     public void setClient(Client client) {
-        this.client = client;
+        if (this.client == null) {
+            this.client = client;
+            this.client.setAdress(this);
+        }
     }
 
     public Shop getShop() throws Exception {
@@ -87,6 +90,9 @@ public class Adress extends ObjectPlus {
     }
 
     public void setShop(Shop shop) {
-        this.shop = shop;
+        if (this.shop == null) {
+            this.shop = shop;
+            this.shop.setAdress(this);
+        }
     }
 }

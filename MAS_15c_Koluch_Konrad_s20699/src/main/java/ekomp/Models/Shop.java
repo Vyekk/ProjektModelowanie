@@ -43,4 +43,11 @@ public class Shop extends ObjectPlus {
             boss.addShop(this);
         }
     }
+
+    public void setAdress(Adress adress) {
+        if (this.adress == null) {
+            this.adress = adress;
+            this.adress.setShop(this);
+        }
+    }
 }

@@ -31,6 +31,17 @@ public class Client extends ObjectPlus {
         return orders;
     }
 
+    public Adress getAdress() {
+        return adress;
+    }
+
+    public void setAdress(Adress adress) {
+        if (this.adress == null) {
+            this.adress = adress;
+            this.adress.setClient(this);
+        }
+    }
+
     // Realizacja asocjacji
     public void addOrder(Order order) {
         if(!orders.contains(order)) {
