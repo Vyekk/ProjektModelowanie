@@ -11,7 +11,7 @@
       <Label layoutX="381.0" layoutY="49.0" text="Zarządzanie zamówieniami" />
       <Button layoutX="385.0" layoutY="177.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="170.0" text="Zmień status" />
       <Button layoutX="76.0" layoutY="91.0" mnemonicParsing="false" onAction="#switchToAddNewPerson" prefHeight="31.0" prefWidth="170.0" text="Dodaj nową osobę" />
-      <Label layoutX="52.0" layoutY="49.0" text="Zarządzanie osobami i zespołami" />
-      <Button layoutX="76.0" layoutY="135.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="170.0" text="Wyświetl wszystkich" />
+      <Label layoutX="91.0" layoutY="49.0" text="Zarządzanie osobami" />
+      <Button layoutX="76.0" layoutY="135.0" mnemonicParsing="false" onAction="#switchToSeeAll" prefHeight="31.0" prefWidth="170.0" text="Wyświetl wszystkich" />
    </children>
 </Pane>

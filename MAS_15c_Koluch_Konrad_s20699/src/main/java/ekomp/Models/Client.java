@@ -24,6 +24,13 @@ public class Client extends ObjectPlus {
 
     public void createOrder() {}
 
+    // Getery i setery
+
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     // Realizacja asocjacji
     public void addOrder(Order order) {
         if(!orders.contains(order)) {

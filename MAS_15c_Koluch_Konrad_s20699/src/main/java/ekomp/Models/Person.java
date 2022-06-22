@@ -51,11 +51,23 @@ public class Person extends ObjectPlus {
 
     @Override
     public String toString() {
-        return "Osoba nazwyajaca sie: " + this.firstName + " " + this.lastName;
+        return this.firstName + " " + this.lastName;
     }
 
     // Getery i setery
 
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public Boss getBoss() {
+        return boss;
+    }
 
     public String getFirstName() {
         return firstName;

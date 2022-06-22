@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +24,8 @@ public class AddNewPersonController {
     TextField tSalary, tId, tFirstName, tLastName;
     @FXML
     DatePicker employmentDate;
+    @FXML
+    Label comunicate;
 
     private Stage stage;
     private Scene scene;
@@ -66,7 +65,7 @@ public class AddNewPersonController {
             System.out.println("Stworzono pracownika");
         } else {
             Person lala = new Person(tFirstName.getText(),tLastName.getText(), (ArrayList<PersonType>) privilages);
-            System.out.println("Stworzono");
+            comunicate.setVisible(true);
         }
     }
     @FXML

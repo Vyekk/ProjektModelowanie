@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ekomp.Controllers.SeeAllController">
+   <children>
+      <Button layoutX="266.0" layoutY="309.0" mnemonicParsing="false" onAction="#switchToMain" text="Powrót" />
+      <ListView fx:id="clientList" layoutX="55.0" layoutY="79.0" prefHeight="178.0" prefWidth="143.0" />
+      <ListView fx:id="bossList" layoutX="228.0" layoutY="79.0" prefHeight="178.0" prefWidth="143.0" />
+      <ListView fx:id="employeeList" layoutX="413.0" layoutY="79.0" prefHeight="178.0" prefWidth="143.0" />
+      <Label layoutX="105.0" layoutY="51.0" text="Klienci" />
+      <Label layoutX="271.0" layoutY="51.0" text="Szefowie" />
+      <Label layoutX="447.0" layoutY="51.0" text="Pracownicy" />
+      <Button layoutX="42.0" layoutY="270.0" mnemonicParsing="false" onAction="#switchToShowOrders" prefHeight="31.0" prefWidth="170.0" text="Wyświetl zamówienia" />
+   </children>
+</Pane>
