@@ -38,6 +38,13 @@ public class Order extends ObjectPlus {
         this.fullCost = fullCost;
     }
 
+    public boolean isEnded() {
+        if (this.status.equals(Status.ZAKONCZONE)) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         try {
@@ -159,6 +166,26 @@ public class Order extends ObjectPlus {
         for(var order : extent) {
             listView.getItems().add(order);
         }
+    }
+    public static boolean searchOrder(int numberToSearch) throws ClassNotFoundException {
+        Iterable<Order> extent = ObjectPlus.getExtent(Order.class);
+        for(var order : extent) {
+            if (order.number == numberToSearch) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static Order getOrderByNr(int numberToSearch) throws ClassNotFoundException {
+        Order myOrder = null;
+        Iterable<Order> extent = ObjectPlus.getExtent(Order.class);
+        for(var order : extent) {
+            if (order.number == numberToSearch) {
+                myOrder = order;
+            }
+        }
+        return myOrder;
     }
 
 }

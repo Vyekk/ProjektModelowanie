@@ -9,8 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +21,15 @@ public class ChangeStatusController implements Initializable {
     ListView orderList;
     @FXML
     ChoiceBox statusChoice;
+    @FXML
+    Label info;
+    @FXML
+    Button choiceButton, testButton, acceptButton;
+    @FXML
+    PasswordField passwordField;
+
+
+    Status status;
 
     private Order order;
     private Stage stage;
@@ -37,7 +45,14 @@ public class ChangeStatusController implements Initializable {
     }
     @FXML
     public void switchToEnterPassword() {
-
+        status = (Status) statusChoice.getValue();
+        passwordField.setVisible(true);
+        acceptButton.setVisible(true);
+        choiceButton.setVisible(false);
+        orderList.setVisible(false);
+        statusChoice.setVisible(false);
+        testButton.setVisible(false);
+        info.setText("Potwiedź zmianę statusu poprzez wpisanie hasła");
     }
     @FXML
     public void switchToMain(ActionEvent event) throws IOException {
@@ -47,10 +62,32 @@ public class ChangeStatusController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void acceptPassword() {
+        passwordField.setVisible(false);
+        acceptButton.setVisible(false);
+        System.out.println(passwordField.getText());
+        if (passwordField.getText().equals("admin")) {
+            order.setStatus(status);
+            orderList.setVisible(true);
+            orderList.refresh();
+            info.setText("Wprowadzono zmiany");
+        } else {
+            info.setText("Nie można zmienić statusu" + System.lineSeparator() + "Powód: Błędne hasło");
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        orderList.getItems().add(order);
-        statusChoice.getItems().addAll(Status.values());
+        if(order.isEnded()) {
+            choiceButton.setVisible(false);
+            orderList.setVisible(false);
+            statusChoice.setVisible(false);
+            testButton.setVisible(false);
+            info.setText("Nie można zmienić statusu" + System.lineSeparator() + "Powód: Zamówienie zostało zakończone");
+        } else {
+            orderList.getItems().add(order);
+            statusChoice.getItems().addAll(Status.values());
+        }
     }
 }

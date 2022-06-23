@@ -4,21 +4,24 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Label fx:id="info" alignment="TOP_CENTER" contentDisplay="BOTTOM" layoutX="98.0" layoutY="159.0" prefHeight="106.0" prefWidth="408.0" text="Wybrane zamówienie:" />
       <ListView fx:id="orderList" layoutX="97.0" layoutY="185.0" prefHeight="30.0" prefWidth="408.0" />
       <Label layoutX="204.0" layoutY="110.0" text="Zmień status">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <Button layoutX="97.0" layoutY="273.0" mnemonicParsing="false" onAction="#switchToEnterPassword" text="Wybierz" />
-      <Button layoutX="377.0" layoutY="231.0" mnemonicParsing="false" onAction="#switchToComputerTest" text="Testuj komputer" />
+      <Button fx:id="choiceButton" layoutX="97.0" layoutY="273.0" mnemonicParsing="false" onAction="#switchToEnterPassword" text="Wybierz" />
+      <Button fx:id="testButton" layoutX="377.0" layoutY="231.0" mnemonicParsing="false" onAction="#switchToComputerTest" text="Testuj komputer" />
       <ChoiceBox fx:id="statusChoice" layoutX="96.0" layoutY="231.0" prefHeight="31.0" prefWidth="139.0" />
-      <Button layoutX="269.0" layoutY="334.0" mnemonicParsing="false" onAction="#switchToMain" text="Zakończ" />
+      <Button layoutX="263.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToMain" text="Zakończ" />
+      <Button fx:id="acceptButton" layoutX="257.0" layoutY="225.0" mnemonicParsing="false" onAction="#acceptPassword" text="Potwierdz" visible="false" />
+      <PasswordField fx:id="passwordField" layoutX="209.0" layoutY="185.0" visible="false" />
    </children>
 </AnchorPane>

@@ -55,4 +55,12 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void switchToStatusOrders(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("statusOrders.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
