@@ -2,6 +2,7 @@ package ekomp.Models;
 
 import ekomp.Helpers.ObjectPlus;
 import ekomp.Helpers.Status;
+import javafx.scene.control.ListView;
 
 import java.time.LocalDate;
 
@@ -153,10 +154,10 @@ public class Order extends ObjectPlus {
     }
 
     // Metody biznesowe
-    public static void showOrders() throws ClassNotFoundException {
+    public static void showOrders(ListView listView) throws ClassNotFoundException {
         Iterable<Order> extent = ObjectPlus.getExtent(Order.class);
         for(var order : extent) {
-            System.out.println(order.toString());
+            listView.getItems().add(order);
         }
     }
 

@@ -3,7 +3,6 @@ package ekomp.Controllers;
 import ekomp.Helpers.ObjectPlus;
 import ekomp.Helpers.PersonType;
 import ekomp.Models.Person;
-import ekomp.Models.Vendor;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +39,7 @@ public class SeeAllController implements Initializable {
     public void switchToShowOrders(ActionEvent event) throws IOException {
         Person selectedPerson = (Person) this.clientList.getSelectionModel().getSelectedItem();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("showOrders.fxml"));
-        showOrdersController controller = new showOrdersController();
+        ShowOrdersController controller = new ShowOrdersController();
         controller.setPerson(selectedPerson);
         loader.setController(controller);
         root = loader.load();

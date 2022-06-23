@@ -50,7 +50,7 @@ public class AddNewOrderController implements Initializable {
         Vendor vendor;
         if (!cShippingCost.isSelected()) {
             fullCost = computer.getServiceCost() + computer.getComputerCost();
-            newOrder = new Order(size+1, Status.STARTED, LocalDate.now(),fullCost,client,computer);
+            newOrder = new Order(size+1, Status.ROZPOCZETE, LocalDate.now(),fullCost,client,computer);
             if (cVendor.isSelected()) {
                 vendor = (Vendor) vendorList.getSelectionModel().getSelectedItem();
                 newOrder.setVendor(vendor);
@@ -63,7 +63,7 @@ public class AddNewOrderController implements Initializable {
             } else {
                 shippingCost += 20;
             }
-            newOrder = new Order(size+1, Status.STARTED, LocalDate.now(),shippingCost,fullCost,client,computer);
+            newOrder = new Order(size+1, Status.ROZPOCZETE, LocalDate.now(),shippingCost,fullCost,client,computer);
             if (cVendor.isSelected()) {
                 vendor = (Vendor) vendorList.getSelectionModel().getSelectedItem();
                 newOrder.setVendor(vendor);

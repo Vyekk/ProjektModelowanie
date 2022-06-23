@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class showOrdersController implements Initializable {
+public class ShowOrdersController implements Initializable {
     private Person person;
     private Stage stage;
     private Scene scene;
