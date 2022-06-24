@@ -104,7 +104,7 @@ public class AddNewOrderController implements Initializable {
         try {
             Computer.showOfferts(computerList);
         } catch (ClassNotFoundException e) {
-            System.out.println("Brak komputerów");;
+            computerList.getItems().add("Nie znaleziono komputerów!");
         }
     }
 
@@ -123,7 +123,7 @@ public class AddNewOrderController implements Initializable {
                 }
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("Nie znaleziono nikogo!");
+            personList.getItems().add("Nie znaleziono nikogo!");
         }
     }
 }

@@ -81,7 +81,6 @@ public class AddNewPersonController {
             if(!rVendor.isSelected() && !rServiceTechnician.isSelected())
                 throw new Exception("Nie wybrano konkretnego pracownika!");
             newPerson = new Person(tFirstName.getText(),tLastName.getText(), employmentDate.getValue(),Float.parseFloat(tSalary.getText()), (ArrayList<PersonType>) privilages);
-            System.out.println("Stworzono pracownika");
         } else {
             newPerson = new Person(tFirstName.getText(),tLastName.getText(), (ArrayList<PersonType>) privilages);
         }

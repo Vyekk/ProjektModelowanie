@@ -24,7 +24,7 @@ public class ChangeStatusController implements Initializable {
     @FXML
     Label info;
     @FXML
-    Button choiceButton, testButton, acceptButton;
+    Button choiceButton, testButton, acceptButton, tryAgainButton;
     @FXML
     PasswordField passwordField;
 
@@ -66,7 +66,6 @@ public class ChangeStatusController implements Initializable {
     public void acceptPassword() {
         passwordField.setVisible(false);
         acceptButton.setVisible(false);
-        System.out.println(passwordField.getText());
         if (passwordField.getText().equals("admin")) {
             order.setStatus(status);
             orderList.setVisible(true);
@@ -74,7 +73,16 @@ public class ChangeStatusController implements Initializable {
             info.setText("Wprowadzono zmiany");
         } else {
             info.setText("Nie można zmienić statusu" + System.lineSeparator() + "Powód: Błędne hasło");
+            tryAgainButton.setVisible(true);
         }
+    }
+
+    @FXML
+    public void tryAgain() {
+        tryAgainButton.setVisible(false);
+        passwordField.setVisible(true);
+        acceptButton.setVisible(true);
+        info.setText("Potwiedź zmianę statusu poprzez wpisanie hasła");
     }
 
     @Override

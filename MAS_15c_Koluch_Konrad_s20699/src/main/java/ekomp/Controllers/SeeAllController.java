@@ -72,7 +72,7 @@ public class SeeAllController implements Initializable {
                 }
             }
         } catch (ClassNotFoundException e) {
-            System.out.println("Nie znaleziono nikogo!");
+            personList.getItems().add("Nie znaleziono nikogo");
         }
     }
 }

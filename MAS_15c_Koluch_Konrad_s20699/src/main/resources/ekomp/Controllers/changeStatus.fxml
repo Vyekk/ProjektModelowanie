@@ -23,5 +23,6 @@
       <Button layoutX="263.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToMain" text="Zakończ" />
       <Button fx:id="acceptButton" layoutX="257.0" layoutY="225.0" mnemonicParsing="false" onAction="#acceptPassword" text="Potwierdz" visible="false" />
       <PasswordField fx:id="passwordField" layoutX="209.0" layoutY="185.0" visible="false" />
+      <Button fx:id="tryAgainButton" layoutX="227.0" layoutY="273.0" mnemonicParsing="false" onAction="#tryAgain" text="Spróbuj jeszcze raz" visible="false" />
    </children>
 </AnchorPane>
